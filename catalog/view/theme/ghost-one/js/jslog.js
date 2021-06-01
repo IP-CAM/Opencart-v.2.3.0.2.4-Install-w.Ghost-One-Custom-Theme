@@ -1,0 +1,2 @@
+function sentryInit(retry){try{Sentry.init({dsn:'https://59702f43b6aa48c3be8691743258c235@o389724.ingest.sentry.io/5228464',whitelistUrls:[/https?:\/\/(www\.)?esh-derevenskoe\.ru/i],ignoreErrors:['Block-scoped declarations (let, const, function, class) not yet supported outside strict mode'],});if(Customer.id){Sentry.setUser({id:Customer.id,username:Customer.username,email:Customer.email});}}catch(e){if(retry>0){setTimeout(function(){sentryInit(retry-1)},50);}}}
+sentryInit(5);
